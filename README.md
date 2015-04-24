@@ -1,6 +1,7 @@
 # How to install
 
-The current version is pretty simple. If you want to have a look how the installation process works, just jump into the Rakefile
+The current version is pretty simple. If you want to have a look how the installation process works, just jump into the Rakefile.
+
 In order to install my dotfiles, follow the commands below:
 
 ```
