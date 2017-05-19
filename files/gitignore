@@ -3,7 +3,7 @@
 
 # VIM
 .netrwhist
-.swp
+*.swp
 
 # SASS
 .sass-cache
