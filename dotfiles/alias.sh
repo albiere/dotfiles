@@ -11,3 +11,10 @@ alias psr='ps aux | grep ruby'
 
 # DF
 alias df='df -h'
+
+# DUMB
+alias kubect='kubectl'
+
+function ctags_ruby {
+  ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+}
