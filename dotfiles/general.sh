@@ -1,4 +1,4 @@
-export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTTIMEFORMAT="%F %T "
 export EDITOR=vim
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
