@@ -1,3 +1,4 @@
+export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%F %T "
 export EDITOR=vim
 
