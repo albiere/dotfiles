@@ -1,6 +1,8 @@
+# GENERAL
 alias ls='ls -Glh'
 alias lsa='ls -Glha'
 alias reload='source ~/.bash_profile'
+alias h='history'
 
 # PS
 alias psa="ps aux"
