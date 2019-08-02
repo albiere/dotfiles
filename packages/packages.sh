@@ -1,6 +1,3 @@
-brew install watch
-brew install gron
+brew install bash-completion vim tmux curl wget nmap watch fd fzf
 
-brew install fd
-brew install fzf
 /usr/local/opt/fzf/install
