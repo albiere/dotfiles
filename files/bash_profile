@@ -1,3 +1,5 @@
+[[ -e ~/.bashrc  ]] && source ~/.bashrc
+
 source $HOME/.dotfiles/general.sh
 source $HOME/.dotfiles/alias.sh
 #source $HOME/.dotfiles/rbenv.sh
