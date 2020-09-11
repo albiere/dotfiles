@@ -1,8 +1,6 @@
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%F %T "
 export EDITOR=vim
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOPATH/bin
 
 set -o vi
 
