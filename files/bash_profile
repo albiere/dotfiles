@@ -2,7 +2,7 @@
 
 source $HOME/.dotfiles/general.sh
 source $HOME/.dotfiles/alias.sh
-#source $HOME/.dotfiles/rbenv.sh
+source $HOME/.dotfiles/rbenv.sh
 source $HOME/.dotfiles/ps1.sh
 source $HOME/.dotfiles/osx.sh
 source $HOME/.dotfiles/dev.sh
