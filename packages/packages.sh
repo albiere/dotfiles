@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Brew packages
+brew update
 brew install \
   bash-completion \
   vim \
@@ -10,7 +11,8 @@ brew install \
   nmap \
   watch \
   fd \
-  fzf
+  fzf \
+  bat
 
 # Tmux package manager
 if [ -d "~/.tmux/plugins/tpm" ]; then
@@ -18,4 +20,6 @@ if [ -d "~/.tmux/plugins/tpm" ]; then
 fi
 
 # Instal FZF
-/usr/local/opt/fzf/install
+if which fd >/dev/null 2>&1; then
+  /usr/local/opt/fzf/install
+fi
