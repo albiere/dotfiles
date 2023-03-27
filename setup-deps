@@ -60,13 +60,12 @@ execute_command "brew install --quiet ${PACKAGES[*]}" "Installing homebrew packa
 
 # Check for asdf to be present, install if it's missing
 if test ! $(which asdf); then
-  execute_command "git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3" \ 
-    "Installing asdf..."
+  execute_command "git clone https://github.com/asdf-vm/asdf.git ${HOME}/.config/asdf --branch v0.11.3" "Installing asdf..."
 fi
 
 # Check for tmux/tpm to be present, install if it's missing
 if [ -d "~/.tmux/plugins/tpm" ]; then
-  execute_command "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm" \
+  execute_command "git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm" \
     "Installing Tmux Package Manager..."
 fi
 
