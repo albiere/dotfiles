@@ -4,5 +4,5 @@ all:
 delete:
 	stow --verbose --dotfiles --target=$$HOME --delete */
 
-packages:
-	./deps/setup.sh
+deps:
+	./setup-deps
