@@ -1,0 +1,12 @@
+# MAC
+.DS_Store
+
+# VIM
+.netrwhist
+*.swp
+
+# SASS
+.sass-cache
+
+# CTAGS
+tags

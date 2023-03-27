@@ -1,0 +1,10 @@
+[[ -e ~/.bashrc  ]] && source ~/.bashrc
+
+source $HOME/.config/bash/general.sh
+source $HOME/.config/bash/alias.sh
+source $HOME/.config/bash/ps1.sh
+source $HOME/.config/bash/osx.sh
+source $HOME/.config/bash/fzf.sh
+
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash

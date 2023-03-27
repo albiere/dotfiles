@@ -1,0 +1,14 @@
+[color]
+  ui = true
+[alias]
+  st = status
+  co = checkout
+	lg = log --color --graph --pretty=format:'%C(red)%h%Creset - %s %C(green)(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+[apply]
+  whitespace = nowarn
+[user]
+	email = angeloalbiero@hey.com
+	name = Angelo Albiero Neto
