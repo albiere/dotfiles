@@ -26,3 +26,7 @@ This option does not work as intended for directories inside packages, only file
 ## Nvim
 
 My nvim configuration is set up in lua and plugins are managed via [Packer](https://github.com/wbthomason/packer.nvim). In order to install plugins, just run `:PackerSync` and everything should be configured properly.
+
+## Asdf
+
+No plugins are installed by default. Check [how to install plugins using asdf here](https://asdf-vm.com/guide/getting-started.html#_4-install-a-plugin)
