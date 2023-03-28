@@ -55,6 +55,7 @@ PACKAGES=(
   rg
   autojump
   tree
+  tealdeer
 )
 
 execute_command "brew update --quiet" "> Updating list of homebrew packages"
