@@ -3,6 +3,7 @@ export HISTTIMEFORMAT="%F %T "
 export EDITOR=nvim
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME=base16
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 set -o vi
 
