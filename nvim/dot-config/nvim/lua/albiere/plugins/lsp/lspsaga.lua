@@ -6,7 +6,9 @@ end
 saga.setup({
 	scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
 	definition = {
-		edit = "<CR>",
+		keys = {
+			edit = "<CR>",
+		},
 	},
 	symbol_in_winbar = {
 		enable = false,
@@ -17,7 +19,7 @@ saga.setup({
 	},
 	ui = {
 		title = true, -- This option only works in Neovim 0.9
-		border = "solid", -- Border type can be single, double, rounded, solid, shadow.
+		border = "single", -- Border type can be single, double, rounded, solid, shadow.
 		winblend = 0,
 		expand = "",
 		collapse = "",
