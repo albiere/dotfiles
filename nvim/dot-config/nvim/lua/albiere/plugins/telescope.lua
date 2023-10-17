@@ -23,7 +23,7 @@ end
 telescope.setup({
 	defaults = {
 		layout_strategy = "horizontal",
-		preview = true,
+		preview = false,
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
@@ -33,10 +33,9 @@ telescope.setup({
 		},
 		layout_config = {
 			horizontal = {
-				height = 0.4,
-				prompt_position = "bottom",
+				height = 0.8,
 				width = 0.8,
-				previewer = false,
+				prompt_position = "bottom",
 			},
 		},
 	},
