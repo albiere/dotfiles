@@ -100,10 +100,6 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jayp0521/mason-null-ls.nvim")
-
 	-- tree sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
