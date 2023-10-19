@@ -7,6 +7,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 set -o vi
+bind '"jk":vi-movement-mode'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
