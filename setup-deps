@@ -56,6 +56,7 @@ PACKAGES=(
   autojump
   tree
   tealdeer
+  postgresql@16
 )
 
 execute_command "brew update --quiet" "> Updating list of homebrew packages"
