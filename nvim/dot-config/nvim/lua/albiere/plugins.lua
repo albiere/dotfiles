@@ -92,7 +92,7 @@ return packer.startup(function(use)
 	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
 	use("hrsh7th/cmp-nvim-lsp")
 	use({
-		"glepnir/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		branch = "main",
 		requires = {
 			{ "nvim-tree/nvim-web-devicons" },
