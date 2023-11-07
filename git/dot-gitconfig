@@ -1,5 +1,7 @@
 [color]
   ui = true
+[init]
+  defaultBranch = main
 [alias]
   st = status
   co = checkout
