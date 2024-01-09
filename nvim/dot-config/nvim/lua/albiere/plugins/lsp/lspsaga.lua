@@ -19,7 +19,7 @@ saga.setup({
 	},
 	ui = {
 		title = true, -- This option only works in Neovim 0.9
-		border = "solid", -- Border type can be single, double, rounded, solid, shadow.
+		border = "single", -- Border type can be single, double, rounded, solid, shadow.
 		winblend = 0,
 		expand = "",
 		collapse = "",

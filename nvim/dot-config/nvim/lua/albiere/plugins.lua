@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- preferred colorscheme
-	use("folke/tokyonight.nvim")
+  use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- essential plugins
 	use("tpope/vim-surround")
