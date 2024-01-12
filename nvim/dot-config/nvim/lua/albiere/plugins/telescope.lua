@@ -9,15 +9,19 @@ if not actions_setup then
 end
 
 ProjectFiles = function(opts)
-	opts = opts or {}
-
-	vim.fn.system("git rev-parse --is-inside-work-tree")
-
-	if vim.v.shell_error == 0 then
-		require("telescope.builtin").git_files(opts)
-	else
-		require("telescope.builtin").find_files(opts)
-	end
+	-- opts = opts or {}
+	--
+	-- vim.fn.system("git rev-parse --is-inside-work-tree")
+	--
+	-- if vim.v.shell_error == 0 then
+	-- 	require("telescope.builtin").git_files(opts)
+	-- else
+	-- 	require("telescope.builtin").find_files(opts)
+	-- end
+  -- 
+  -- Not sure yet on what behaviour I prefer. Will leave as is for now
+		
+  require("telescope.builtin").find_files(opts)
 end
 
 telescope.setup({

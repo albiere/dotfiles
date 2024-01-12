@@ -76,6 +76,9 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 
+  -- formatting
+  use("stevearc/conform.nvim")
+
 	-- vs-code like icons for autocompletion
 	use("onsails/lspkind.nvim")
 
