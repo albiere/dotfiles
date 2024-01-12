@@ -61,11 +61,11 @@ lspconfig["tailwindcss"].setup({
 lspconfig["solargraph"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-  settings = {
-    solargraph = {
-      diagnostics = false
-    }
-  }
+	settings = {
+		solargraph = {
+			diagnostics = false,
+		},
+	},
 })
 
 lspconfig["elixirls"].setup({

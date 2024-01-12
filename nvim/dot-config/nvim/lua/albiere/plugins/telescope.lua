@@ -18,10 +18,10 @@ ProjectFiles = function(opts)
 	-- else
 	-- 	require("telescope.builtin").find_files(opts)
 	-- end
-  -- 
-  -- Not sure yet on what behaviour I prefer. Will leave as is for now
-		
-  require("telescope.builtin").find_files(opts)
+	--
+	-- Not sure yet on what behaviour I prefer. Will leave as is for now
+
+	require("telescope.builtin").find_files(opts)
 end
 
 telescope.setup({

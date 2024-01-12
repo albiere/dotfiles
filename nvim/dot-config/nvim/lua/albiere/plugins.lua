@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- preferred colorscheme
-  use { "catppuccin/nvim", as = "catppuccin" }
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- essential plugins
 	use("tpope/vim-surround")
@@ -76,8 +76,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 
-  -- formatting
-  use("stevearc/conform.nvim")
+	-- formatting
+	use("stevearc/conform.nvim")
 
 	-- vs-code like icons for autocompletion
 	use("onsails/lspkind.nvim")
@@ -85,7 +85,7 @@ return packer.startup(function(use)
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  use("rafamadriz/friendly-snippets")
+	use("rafamadriz/friendly-snippets")
 
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim")
