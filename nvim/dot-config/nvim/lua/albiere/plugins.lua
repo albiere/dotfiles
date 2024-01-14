@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 	use("numToStr/Comment.nvim")
+	use({ "Wansmer/treesj", requires = { "nvim-treesitter/nvim-treesitter" } })
 
 	-- great start screen for nvim
 	use("mhinz/vim-startify")
