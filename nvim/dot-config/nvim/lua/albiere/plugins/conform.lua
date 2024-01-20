@@ -19,14 +19,17 @@ require("conform").setup({
 		typescriptreact = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
 		graphql = { { "prettierd", "prettier" } },
-		ruby = { "rubocop" },
 		markdown = { { "prettierd", "prettier" } },
-		erb = { "htmlbeautifier" },
-		html = { "htmlbeautifier" },
+		eruby = { "htmlbeautifier" },
 		bash = { "beautysh" },
 		yaml = { "yamlfix" },
 		css = { { "prettierd", "prettier" } },
 		scss = { { "prettierd", "prettier" } },
+	},
+	formatters = {
+		htmlbeautifier = {
+			prepend_args = { "-b", "1" },
+		},
 	},
 	format_on_save = {
 		timeout_ms = 500,

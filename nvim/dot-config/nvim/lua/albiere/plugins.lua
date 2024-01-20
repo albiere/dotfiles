@@ -46,6 +46,7 @@ return packer.startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- essential plugins
+	use("tpope/vim-endwise")
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 	use("windwp/nvim-autopairs")

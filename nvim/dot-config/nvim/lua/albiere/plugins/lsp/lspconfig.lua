@@ -33,26 +33,8 @@ end
 -- used to enable autocompletion
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure javascript server
-lspconfig["tsserver"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
 -- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
+lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -61,6 +43,7 @@ lspconfig["tailwindcss"].setup({
 lspconfig["solargraph"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	formatting = false,
 	settings = {
 		solargraph = {
 			diagnostics = false,
@@ -68,6 +51,18 @@ lspconfig["solargraph"].setup({
 	},
 })
 
+lspconfig["standardrb"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure html server
+lspconfig["html"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure elixir server
 lspconfig["elixirls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
