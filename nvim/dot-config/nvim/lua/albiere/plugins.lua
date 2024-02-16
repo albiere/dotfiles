@@ -27,7 +27,7 @@ end
 packer.init({
 	display = {
 		open_fn = function()
-			return require("packer.util").float({ border = "solid" })
+			return require("packer.util").float({ border = "single" })
 		end,
 	},
 	git = {
@@ -54,12 +54,17 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	use({ "Wansmer/treesj", requires = { "nvim-treesitter/nvim-treesitter" } })
 	use({ "folke/which-key.nvim" })
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 
 	-- development
 	use({
 		"vim-test/vim-test",
 		config = function()
-			vim.g["test#strategy"] = "vimux"
+			vim.g["test#strategy"] = "neovim"
 		end,
 	})
 
