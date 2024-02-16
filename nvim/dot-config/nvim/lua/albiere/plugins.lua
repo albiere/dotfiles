@@ -53,9 +53,24 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 	use("numToStr/Comment.nvim")
 	use({ "Wansmer/treesj", requires = { "nvim-treesitter/nvim-treesitter" } })
+	use({ "folke/which-key.nvim" })
+
+	-- development
+	use({
+		"vim-test/vim-test",
+		config = function()
+			vim.g["test#strategy"] = "vimux"
+		end,
+	})
 
 	-- great start screen for nvim
-	use("mhinz/vim-startify")
+	use({
+		"mhinz/vim-startify",
+		requires = { "preservim/vimux" },
+		config = function()
+			vim.g["startify_change_to_dir"] = 0
+		end,
+	})
 
 	-- indentation guides
 	use("lukas-reineke/indent-blankline.nvim")

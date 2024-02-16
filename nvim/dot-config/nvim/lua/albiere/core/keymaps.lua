@@ -54,3 +54,9 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 
 -- treesj
 keymap.set("n", "J", ":TSJToggle<CR>")
+
+-- vim-test
+keymap.set("n", "tt", ":TestNearest<CR>")
+keymap.set("n", "tf", ":TestFile<CR>")
+keymap.set("n", "tl", ":TestLast<CR>")
+keymap.set("n", "tv", ":TestVisit<CR>")
