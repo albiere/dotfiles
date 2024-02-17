@@ -1,3 +1,8 @@
+local conform_setup, conform = pcall(require, "conform")
+if not conform_setup then
+	return
+end
+
 vim.api.nvim_create_user_command("Format", function(args)
 	local range = nil
 	if args.count ~= -1 then
@@ -7,10 +12,10 @@ vim.api.nvim_create_user_command("Format", function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({ async = true, lsp_fallback = true, range = range })
+	conform.format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
 
-require("conform").setup({
+conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		javascript = { { "prettierd", "prettier" } },
