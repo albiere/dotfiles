@@ -26,7 +26,7 @@ treesitter.setup({
 	},
 
 	highlight = { enable = true },
-	indent = { enable = true },
+	indent = { enable = false }, -- Breaks ruby code when true ???
 	autotag = { enable = true },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
