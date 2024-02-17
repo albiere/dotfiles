@@ -40,6 +40,8 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("n", "<leader>ve", "<cmd>e $MYVIMRC<CR>")
 keymap.set("n", "<leader>vr", "<cmd>source $MYVIMRC<CR>")
 
+keymap.set("t", "<C-n>", [[<C-\><C-n>gg]])
+
 ---------------------
 -- Plugins Keymaps
 ---------------------
