@@ -128,6 +128,11 @@ return packer.startup(function(use)
 
 	-- tree sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
