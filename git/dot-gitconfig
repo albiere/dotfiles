@@ -1,16 +1,30 @@
 [color]
   ui = true
+
 [init]
   defaultBranch = main
+
 [alias]
   st = status
   co = checkout
 	lg = log --color --graph --pretty=format:'%C(red)%h%Creset - %s %C(green)(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit
+
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
+
+[commit]
+  verbose = true
+
+[diff]
+  algorithm = histogram
+
+[merge]
+  conflictStyle = zdiff3
+
 [apply]
   whitespace = nowarn
+
 [user]
 	email = angeloalbiero@hey.com
 	name = Angelo Albiero Neto
