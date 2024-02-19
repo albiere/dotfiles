@@ -133,6 +133,7 @@ return packer.startup(function(use)
 		after = "nvim-treesitter",
 		requires = "nvim-treesitter/nvim-treesitter",
 	})
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	if packer_bootstrap then
 		require("packer").sync()
