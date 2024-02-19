@@ -33,22 +33,9 @@ end
 -- used to enable autocompletion
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- configure tailwindcss server
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
-
--- configure ruby server
-lspconfig["solargraph"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	formatting = false,
-	settings = {
-		solargraph = {
-			diagnostics = false,
-		},
-	},
 })
 
 lspconfig["standardrb"].setup({
@@ -56,19 +43,16 @@ lspconfig["standardrb"].setup({
 	on_attach = on_attach,
 })
 
--- configure html server
 lspconfig["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
--- configure elixir server
 lspconfig["elixirls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
--- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
