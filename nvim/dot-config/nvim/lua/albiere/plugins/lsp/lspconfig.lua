@@ -38,7 +38,7 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["standardrb"].setup({
+lspconfig["rubocop"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
