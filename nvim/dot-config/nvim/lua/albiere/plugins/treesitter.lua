@@ -51,11 +51,12 @@ treesitter.setup({
 
 			keymaps = {
 				-- You can use the capture groups defined in textobjects.scm
-				["af"] = "@function.outer",
 				["if"] = "@function.inner",
+				["af"] = "@function.outer",
+				["ic"] = "@class.inner",
 				["ac"] = "@class.outer",
-				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-				["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+				["ib"] = "@block.inner",
+				["ab"] = "@block.outer",
 			},
 
 			selection_modes = {
