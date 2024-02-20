@@ -27,7 +27,7 @@ conform.setup({
 		markdown = { { "prettierd", "prettier" } },
 		eruby = { "htmlbeautifier" },
 		bash = { "beautysh" },
-		yaml = { "yamlfix" },
+		yaml = { { "prettierd", "prettier" } },
 		css = { { "prettierd", "prettier" } },
 		scss = { { "prettierd", "prettier" } },
 	},
