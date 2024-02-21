@@ -1,141 +1,89 @@
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "single" })
-		end,
-	},
-	git = {
-		clone_timeout = 300,
-	},
-})
-
-return packer.startup(function(use)
-	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
-
-	-- lua functions that many plugins use
-	use("nvim-lua/plenary.nvim")
-
-	-- preferred colorscheme
-	use({ "catppuccin/nvim", as = "catppuccin" })
+require("lazy").setup({
+	-- tree sitter
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "nvim-treesitter/nvim-treesitter-context", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "RRethy/nvim-treesitter-endwise", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
 
 	-- essential plugins
-	use("RRethy/nvim-treesitter-endwise")
-	use("tpope/vim-surround")
-	use("tpope/vim-repeat")
-	use("windwp/nvim-autopairs")
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
-	use("numToStr/Comment.nvim")
-	use({ "Wansmer/treesj", requires = { "nvim-treesitter/nvim-treesitter" } })
-	use({ "folke/which-key.nvim" })
-	use({
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+	{ "nvim-lua/plenary.nvim" },
+	{ "tpope/vim-repeat" },
+	{ "folke/which-key.nvim", event = "VeryLazy" },
+	{ "windwp/nvim-autopairs", event = "InsertEnter" },
+	{ "numToStr/Comment.nvim" },
+	{ "Wansmer/treesj", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+
+	-- preferred colorscheme
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+	-- LSP
+	{ "neovim/nvim-lspconfig" },
+	{ "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+	{
+		"nvimdev/lspsaga.nvim",
+		dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
+	},
+
+	-- managing & installing lsp servers, linters & formatters
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+
+	-- autocompletion
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
+	{ "onsails/lspkind.nvim" },
+
+	-- snippets
+	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+	{ "saadparwaiz1/cmp_luasnip" },
+
+	-- formatting
+	{ "stevearc/conform.nvim" },
 
 	-- development
-	use({
+	{
 		"vim-test/vim-test",
 		config = function()
 			vim.g["test#strategy"] = "neovim"
 		end,
-	})
+	},
 
 	-- great start screen for nvim
-	use({
+	{
 		"mhinz/vim-startify",
-		requires = { "preservim/vimux" },
 		config = function()
 			vim.g["startify_change_to_dir"] = 0
 		end,
-	})
+	},
 
 	-- indentation guides
-	use("lukas-reineke/indent-blankline.nvim")
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
 	-- git integration
-	use("lewis6991/gitsigns.nvim")
+	{ "lewis6991/gitsigns.nvim" },
 
 	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
-
-	-- fancy icons
-	use("nvim-tree/nvim-web-devicons")
+	{ "nvim-tree/nvim-tree.lua", version = "*", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	-- fuzzy finding w/ telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
-
-	-- autocompletion
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-
-	-- formatting
-	use("stevearc/conform.nvim")
-
-	-- vs-code like icons for autocompletion
-	use("onsails/lspkind.nvim")
-
-	-- snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets")
-
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-
-	-- configuring LSP servers
-	use("neovim/nvim-lspconfig")
-	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
-	use("hrsh7th/cmp-nvim-lsp")
-	use({
-		"nvimdev/lspsaga.nvim",
-		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	})
-
-	-- tree sitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		after = "nvim-treesitter",
-		requires = "nvim-treesitter/nvim-treesitter",
-	})
-	use("nvim-treesitter/nvim-treesitter-context")
-
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+})

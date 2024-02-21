@@ -23,10 +23,12 @@ treesitter.setup({
 		"eex",
 		"erlang",
 		"ruby",
+		"embedded_template",
 	},
 
 	highlight = { enable = true },
 	indent = { enable = false }, -- Breaks ruby code when true ???
+	endwise = { enable = true },
 	autotag = { enable = true },
 
 	sync_install = false,
