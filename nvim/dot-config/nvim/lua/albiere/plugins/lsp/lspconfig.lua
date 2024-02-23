@@ -38,12 +38,12 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["rubocop"].setup({
+lspconfig["tailwindcss"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-lspconfig["html"].setup({
+lspconfig["rubocop"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
