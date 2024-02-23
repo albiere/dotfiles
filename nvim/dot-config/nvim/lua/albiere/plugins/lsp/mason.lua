@@ -8,17 +8,20 @@ if not mason_lspconfig_status then
 	return
 end
 
-mason.setup()
+mason.setup({
+	ui = {
+		border = "single",
+	},
+})
 
 mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
-		"html",
 		"cssls",
 		"tailwindcss",
 		"lua_ls",
 		"elixirls",
-		"solargraph",
+		"rubocop",
 	},
 	automatic_installation = true,
 })
