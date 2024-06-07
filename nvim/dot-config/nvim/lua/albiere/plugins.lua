@@ -29,8 +29,8 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim" },
 	{ "Wansmer/treesj", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 
-	-- preferred colorscheme
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  -- preferred colorscheme
+  { "rebelot/kanagawa.nvim" },
 
 	-- LSP
 	{ "neovim/nvim-lspconfig" },

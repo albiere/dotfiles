@@ -1,16 +1,30 @@
-local status_ok, catppuccin = pcall(require, "catppuccin")
+local status_ok, kanagawa = pcall(require, "kanagawa")
 if not status_ok then
-	return
+  return
 end
 
-catppuccin.setup({
-	flavour = "frappe",
-	transparent_background = true,
-	integrations = {
-		telescope = {
-			enabled = true,
-		},
-	},
+kanagawa.setup({
+  compile = false,
+  undercurl = true,
+  commentStyle = { italic = false },
+  functionStyle = {},
+  keywordStyle = { italic = false },
+  statementStyle = { bold = true },
+  typeStyle = {},
+  transparent = false,
+  dimInactive = false,
+  terminalColors = true,
+  colors = {
+    palette = {},
+    theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = { bg_gutter = "none" } } },
+  },
+  overrides = function(colors)
+  end,
+  theme = "wave",
+  background = {
+    dark = "wave",
+    light = "lotus"
+  },
 })
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("kanagawa")
