@@ -12,6 +12,7 @@ mason.setup({
 	ui = {
 		border = "single",
 	},
+	PATH = "append",
 })
 
 mason_lspconfig.setup({
