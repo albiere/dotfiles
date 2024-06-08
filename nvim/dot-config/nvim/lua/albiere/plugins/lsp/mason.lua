@@ -11,6 +11,8 @@ end
 mason.setup({
 	ui = {
 		border = "single",
+		height = 0.8,
+		width = 0.8,
 	},
 	PATH = "append",
 })

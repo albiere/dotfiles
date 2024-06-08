@@ -19,7 +19,12 @@ kanagawa.setup({
 		theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = { bg_gutter = "none" } } },
 	},
 	overrides = function(colors)
-		return {}
+		local theme = colors.theme
+		return {
+			NormalFloat = { bg = "none" },
+			FloatBorder = { bg = "none" },
+			FloatTitle = { bg = "none" },
+		}
 	end,
 	theme = "wave",
 	background = {
