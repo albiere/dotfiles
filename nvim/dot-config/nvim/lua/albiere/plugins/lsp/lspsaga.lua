@@ -17,6 +17,9 @@ saga.setup({
 		on_insert = false,
 		on_insert_follow = false,
 	},
+	beacon = {
+		enable = false,
+	},
 	ui = {
 		title = true, -- This option only works in Neovim 0.9
 		border = "single", -- Border type can be single, double, rounded, solid, shadow.
