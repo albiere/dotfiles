@@ -51,7 +51,7 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- telescope
 keymap.set("n", "<C-p>", "<CMD>lua ProjectFiles()<CR>")
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<cr>")
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 
 -- treesj
