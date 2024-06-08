@@ -34,7 +34,6 @@ require("lazy").setup({
 
 	-- LSP
 	{ "neovim/nvim-lspconfig" },
-	{ "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"nvimdev/lspsaga.nvim",
 		dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
