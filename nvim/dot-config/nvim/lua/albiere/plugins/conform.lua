@@ -27,7 +27,6 @@ conform.setup({
 		markdown = { { "prettierd", "prettier" } },
 		eruby = { "htmlbeautifier" },
 		ruby = { "rubocop" },
-		bash = { "beautysh" },
 		yaml = { { "prettierd", "prettier" } },
 		css = { { "prettierd", "prettier" } },
 		scss = { { "prettierd", "prettier" } },
@@ -38,7 +37,7 @@ conform.setup({
 		},
 	},
 	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = true,
+		timeout_ms = 1000,
+		lsp_format = "prefer",
 	},
 })
