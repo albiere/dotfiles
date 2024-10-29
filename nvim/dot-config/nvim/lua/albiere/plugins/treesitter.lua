@@ -27,7 +27,7 @@ treesitter.setup({
 	},
 
 	highlight = { enable = true },
-	indent = { enable = false }, -- Breaks ruby code when true ???
+	indent = { enable = false },
 	endwise = { enable = true },
 	autotag = { enable = true },
 
