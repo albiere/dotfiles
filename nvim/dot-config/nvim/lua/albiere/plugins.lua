@@ -16,7 +16,6 @@ require("lazy").setup({
   -- tree sitter
   { "nvim-treesitter/nvim-treesitter",             build = ":TSUpdate" },
   { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
-  { "nvim-treesitter/nvim-treesitter-context",     dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "RRethy/nvim-treesitter-endwise",              dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "windwp/nvim-ts-autotag",                      dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "kylechui/nvim-surround",                      version = "*",                                       event = "VeryLazy" },
