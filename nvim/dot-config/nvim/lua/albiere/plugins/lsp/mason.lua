@@ -22,11 +22,8 @@ mason_lspconfig.setup({
     "emmet_ls",
     "ts_ls",
     "cssls",
-    "tailwindcss",
-    "ruby_lsp",
     "elixirls",
-    "rubocop",
     "lua_ls",
   },
-  automatic_installation = true,
+  automatic_installation = false,
 })
