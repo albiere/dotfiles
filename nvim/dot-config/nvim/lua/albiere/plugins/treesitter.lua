@@ -29,7 +29,6 @@ treesitter.setup({
   highlight = { enable = true },
   indent = { enable = false },
   endwise = { enable = true },
-  autotag = { enable = true },
 
   sync_install = false,
 
@@ -63,7 +62,7 @@ treesitter.setup({
 
       selection_modes = {
         ["@parameter.outer"] = "v", -- charwise
-        ["@function.outer"] = "V", -- linewise
+        ["@function.outer"] = "V",  -- linewise
         ["@class.outer"] = "<c-v>", -- blockwise
       },
 
