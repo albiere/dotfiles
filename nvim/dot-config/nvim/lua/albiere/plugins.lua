@@ -33,10 +33,6 @@ require("lazy").setup({
 
   -- LSP
   { "neovim/nvim-lspconfig" },
-  {
-    "nvimdev/lspsaga.nvim",
-    dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
-  },
 
   -- managing & installing lsp servers, linters & formatters
   { "williamboman/mason.nvim" },
@@ -50,7 +46,7 @@ require("lazy").setup({
   { "onsails/lspkind.nvim" },
 
   -- snippets
-  { "L3MON4D3/LuaSnip",                 dependencies = { "rafamadriz/friendly-snippets" } },
+  { "L3MON4D3/LuaSnip",                            dependencies = { "rafamadriz/friendly-snippets" } },
   { "saadparwaiz1/cmp_luasnip" },
 
   -- formatting
