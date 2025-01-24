@@ -30,9 +30,9 @@ local keymap = vim.keymap
 local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  keymap.set('n', 'gD', "<cmd>Trouble lsp_declarations<CR>", opts)
+  keymap.set('n', 'gd', "<cmd>Trouble lsp_definitions<CR>", opts)
+  keymap.set('n', 'gi', "<cmd>Trouble lsp_implementations<CR>", opts)
   keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
   keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   keymap.set('n', 'K', vim.lsp.buf.hover, opts)

@@ -21,12 +21,6 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
--- window management
-keymap.set("n", "<C-j>", "<C-W>j")
-keymap.set("n", "<C-k>", "<C-W>k")
-keymap.set("n", "<C-h>", "<C-W>h")
-keymap.set("n", "<C-l>", "<C-W>l")
-
 keymap.set("n", "<leader>to", ":tabnew<CR>")
 keymap.set("n", "<leader>tx", ":tabclose<CR>")
 keymap.set("n", "<leader>tn", ":tabn<CR>")
@@ -41,6 +35,10 @@ keymap.set("n", "<leader>ve", "<cmd>e $MYVIMRC<CR>")
 keymap.set("n", "<leader>vr", "<cmd>source $MYVIMRC<CR>")
 
 keymap.set("t", "<C-n>", [[<C-\><C-n>gg]])
+
+-- quickfix
+keymap.set("n", "<C-j>", ":cnext<CR>")
+keymap.set("n", "<C-k>", ":cprev<CR>")
 
 ---------------------
 -- Plugins Keymaps

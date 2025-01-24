@@ -56,6 +56,7 @@ require("lazy").setup({
   { "stevearc/conform.nvim" },
 
   -- development
+  { "folke/trouble.nvim",                          cmd = "Trouble" },
   {
     "vim-test/vim-test",
     config = function()
