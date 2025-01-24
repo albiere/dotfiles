@@ -26,7 +26,7 @@ conform.setup({
     graphql = { "prettierd", "prettier" },
     markdown = { "prettierd", "prettier" },
     eruby = { "htmlbeautifier" },
-    ruby = { "rubocop" },
+    -- ruby = { "rubocop" },
     yaml = { "prettierd", "prettier" },
     css = { "prettierd", "prettier" },
     scss = { "prettierd", "prettier" },
