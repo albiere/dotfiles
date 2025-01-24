@@ -34,6 +34,9 @@ require("lazy").setup({
   -- LSP
   { "neovim/nvim-lspconfig" },
 
+  -- Github Copilot
+  { "github/copilot.vim" },
+
   -- managing & installing lsp servers, linters & formatters
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
