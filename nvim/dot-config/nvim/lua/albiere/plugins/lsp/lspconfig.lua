@@ -20,6 +20,8 @@ end
 
 function lsp_mappings(ev)
   local opts = { noremap = true, silent = true, buffer = ev.buf }
+  keymap.set('n', 'grd', "<cmd>Trouble diagnostics<CR>", opts)
+  keymap.set('n', 'grs', "<cmd>Trouble lsp_document_symbols<CR>", opts)
   keymap.set('n', 'gd', "<cmd>Trouble lsp_definitions<CR>", opts)
 end
 
