@@ -1,6 +1,5 @@
 # kanagawa wave theme
 # https://github.com/rebelot/kanagawa.nvim/blob/master/extras/ghostty/kanagawa-wave
-
 palette = 0=#16161d
 palette = 1=#c34043
 palette = 2=#76946a
@@ -24,10 +23,21 @@ cursor-color = c8c093
 selection-background = 2d4f67
 selection-foreground = c8c093
 
+# Font settings
 font-family = FireCode Nerd font Mono
 font-size = 16
-font-thicken = true
+# font-thicken = true
 
+# Window settings
 window-height = 40
 window-width = 140
 window-padding-y = 0
+window-save-state = always
+
+# Mouse settings
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+copy-on-select = true
+
+# keybindings
+keybind = cmd+s>r=reload_config
