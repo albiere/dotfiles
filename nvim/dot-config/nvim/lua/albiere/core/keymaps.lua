@@ -40,6 +40,23 @@ keymap.set("t", "<C-n>", [[<C-\><C-n>gg]])
 keymap.set("n", "<C-j>", ":cnext<CR>")
 keymap.set("n", "<C-k>", ":cprev<CR>")
 
+-- completion popup
+keymap.set('i', '<Tab>', function()
+  if vim.fn.pumvisible() == 1 then
+    return '<C-n>'
+  else
+    return '<Tab>'
+  end
+end, {expr = true, desc = 'Next completion or tab'})
+
+keymap.set('i', '<S-Tab>', function()
+  if vim.fn.pumvisible() == 1 then
+    return '<C-p>'
+  else
+    return '<S-Tab>'
+  end
+end, {expr = true, desc = 'Previous completion or shift-tab'})
+
 ---------------------
 -- Plugins Keymaps
 ---------------------

@@ -31,29 +31,8 @@ require("lazy").setup({
   -- preferred colorscheme
   { "rebelot/kanagawa.nvim" },
 
-  -- LSP
-  { "neovim/nvim-lspconfig" },
-
   -- Github Copilot
   { "github/copilot.vim" },
-
-  -- managing & installing lsp servers, linters & formatters
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
-
-  -- autocompletion
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-path" },
-  { "onsails/lspkind.nvim" },
-
-  -- snippets
-  { "L3MON4D3/LuaSnip",                            dependencies = { "rafamadriz/friendly-snippets" } },
-  { "saadparwaiz1/cmp_luasnip" },
-
-  -- formatting
-  { "stevearc/conform.nvim" },
 
   -- development
   { "folke/trouble.nvim",                          cmd = "Trouble" },

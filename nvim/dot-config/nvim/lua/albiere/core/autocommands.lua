@@ -5,3 +5,10 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
     vim.cmd([[Trouble qflist open]])
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    vim.lsp.buf.format({ bufnr = args.buf })
+  end,
+})
