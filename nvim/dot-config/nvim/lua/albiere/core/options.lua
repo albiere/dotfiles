@@ -59,7 +59,6 @@ opt.fileencoding = "utf-8" -- the encoding written to a file
 opt.mouse = "a"            -- allow the mouse to be used in neovim
 opt.undofile = true        -- enable persistent undo
 opt.iskeyword:append("-")  -- treats words with `-` as single words
-opt.winborder = 'rounded'  -- floating windows borders
 
 -- plugin specific
 opt.completeopt = "menu,menuone,noselect" -- nvim-cmd (not sure this is needed anymore)

@@ -25,6 +25,13 @@ function lsp_mappings(ev)
   keymap.set('n', 'gd', "<cmd>Trouble lsp_definitions<CR>", opts)
 end
 
+-- Override the default hover function to use a custom border and size
+-- global winborder breaks Telescope, so we use a custom hover function instead
+local hover = vim.lsp.buf.hover
+vim.lsp.buf.hover = function()
+  return hover({ border = "rounded" })
+end
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     lsp_completion(ev)
