@@ -25,6 +25,25 @@ function lsp_mappings(ev)
   keymap.set('n', 'gd', "<cmd>Trouble lsp_definitions<CR>", opts)
 end
 
+function lsp_notification(ev)
+  local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+  vim.notify('LSP (' .. client.name .. '): Attached!', vim.log.levels.INFO)
+
+  if client then
+    client.handlers['$/progress'] = function(_, result, ctx)
+      local value = result.value
+      if value.kind == 'begin' then
+        vim.notify('LSP (' .. client.name .. '): Starting...', vim.log.levels.INFO)
+      elseif value.kind == 'report' then
+        vim.notify('LSP (' .. client.name .. '): ' .. value.message, vim.log.levels.INFO)
+      elseif value.kind == 'end' then
+        vim.notify('LSP (' .. client.name .. '): Initialization Complete!', vim.log.levels.INFO)
+      end
+    end
+  end
+end
+
 -- Override the default hover function to use a custom border and size
 -- global winborder breaks Telescope, so we use a custom hover function instead
 local hover = vim.lsp.buf.hover
@@ -36,6 +55,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     lsp_completion(ev)
     lsp_mappings(ev)
+    lsp_notification(ev)
   end,
 })
 
