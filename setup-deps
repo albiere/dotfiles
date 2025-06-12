@@ -58,6 +58,7 @@ PACKAGES=(
   tree
   tealdeer
   lua-language-server
+  yaml-language-server
 )
 
 CASK_PACKAGES=(
