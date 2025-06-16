@@ -43,6 +43,14 @@ require("lazy").setup({
     end,
   },
 
+  -- better notification system
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      vim.notify = require("notify")
+    end,
+  },
+
   -- great start screen for nvim
   {
     "goolord/alpha-nvim",
