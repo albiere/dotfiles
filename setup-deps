@@ -36,38 +36,8 @@ if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Brew packages
-PACKAGES=(
-  asdf
-  coreutils
-  gpg
-  gawk
-  bash-completion
-  nvim
-  tmux
-  curl
-  wget
-  nmap
-  watch
-  fd
-  fzf
-  bat
-  starship
-  rg
-  autojump
-  tree
-  tealdeer
-  lua-language-server
-  yaml-language-server
-)
-
-CASK_PACKAGES=(
-  ghostty
-)
-
-execute_command "brew update --quiet" "> Updating list of homebrew packages"
-execute_command "brew install --quiet ${PACKAGES[*]}" "> Installing homebrew packages"
-execute_command "brew install --quiet --cask ${CASK_PACKAGES[*]}" "> Installing homebrew cask packages"
+# Install Homebrew packages
+execute_command "brew bundle"
 
 # Check for tmux/tpm to be present, install if it's missing
 if [ -d "~/.tmux/plugins/tpm" ]; then
