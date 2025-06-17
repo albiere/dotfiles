@@ -43,13 +43,8 @@ require("lazy").setup({
     end,
   },
 
-  -- better notification system
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      vim.notify = require("notify")
-    end,
-  },
+  -- dim inactive windows
+  { 'sunjon/shade.nvim' },
 
   -- great start screen for nvim
   {

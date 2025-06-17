@@ -52,18 +52,16 @@ end
 
 local function lsp_notification(ev)
   local client = vim.lsp.get_client_by_id(ev.data.client_id)
-  local notification = vim.notify('LSP attached!', vim.log.levels.INFO, { title = 'LSP (' .. client.name .. ')' })
 
   if client then
     client.handlers['$/progress'] = function(_, result, ctx)
       local value = result.value
       if value.kind == 'begin' then
-        notification = vim.notify('Loading LSP...', vim.log.levels.INFO, { replace = notification, timeout = false })
+        vim.notify('Loading LSP (' .. client.name .. ')', vim.log.levels.INFO)
       elseif value.kind == 'report' then
-        notification = vim.notify('Loading: ' .. value.message, vim.log.levels.INFO, { replace = notification })
+        vim.notify('Loading LSP (' .. client.name .. '): ' .. value.message, vim.log.levels.INFO)
       elseif value.kind == 'end' then
-        notification = vim.notify('Initialization Complete!', vim.log.levels.INFO,
-          { replace = notification, timeout = 3000 })
+        vim.notify('LSP (' .. client.name .. ') loaded!', vim.log.levels.INFO)
       end
     end
   end
