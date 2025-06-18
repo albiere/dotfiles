@@ -43,9 +43,6 @@ require("lazy").setup({
     end,
   },
 
-  -- dim inactive windows
-  { 'sunjon/shade.nvim' },
-
   -- great start screen for nvim
   {
     "goolord/alpha-nvim",
