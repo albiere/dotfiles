@@ -42,6 +42,9 @@ require("lazy").setup({
     end,
   },
 
+  -- Formatting
+  { 'stevearc/conform.nvim',                    opts = {} },
+
   -- great start screen for nvim
   {
     "goolord/alpha-nvim",
