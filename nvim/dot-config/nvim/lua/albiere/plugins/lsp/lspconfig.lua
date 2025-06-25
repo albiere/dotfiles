@@ -75,4 +75,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({ 'lua', 'ruby', 'html', 'yaml' })
+vim.lsp.enable({ 'lua', 'ruby', 'html', 'yaml', 'javascript' })

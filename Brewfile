@@ -19,5 +19,7 @@ brew "tree"
 brew "tealdeer"
 brew "lua-language-server"
 brew "yaml-language-server"
+brew "typescript-language-server"
+brew "prettier"
 
 cask "ghostty"

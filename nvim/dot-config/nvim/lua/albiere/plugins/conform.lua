@@ -5,7 +5,7 @@ end
 
 conform.setup({
   formatters_by_ft = {
-    eruby = { "erb_format" },
+    javascript = { "prettier" },
   },
   format_on_save = {
     timeout_ms = 500,
