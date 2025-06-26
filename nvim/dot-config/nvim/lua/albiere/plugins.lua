@@ -26,6 +26,7 @@ require("lazy").setup({
   { "folke/which-key.nvim",                        event = "VeryLazy" },
   { "windwp/nvim-autopairs",                       event = "InsertEnter" },
   { "Wansmer/treesj",                              dependencies = { "nvim-treesitter/nvim-treesitter" } },
+  { "tpope/vim-projectionist" },
 
   -- preferred colorscheme
   { "rebelot/kanagawa.nvim" },

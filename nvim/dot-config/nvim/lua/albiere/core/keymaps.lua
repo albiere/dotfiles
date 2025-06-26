@@ -47,7 +47,7 @@ keymap.set('i', '<Tab>', function()
   else
     return '<Tab>'
   end
-end, {expr = true, desc = 'Next completion or tab'})
+end, { expr = true, desc = 'Next completion or tab' })
 
 keymap.set('i', '<S-Tab>', function()
   if vim.fn.pumvisible() == 1 then
@@ -55,7 +55,7 @@ keymap.set('i', '<S-Tab>', function()
   else
     return '<S-Tab>'
   end
-end, {expr = true, desc = 'Previous completion or shift-tab'})
+end, { expr = true, desc = 'Previous completion or shift-tab' })
 
 ---------------------
 -- Plugins Keymaps
@@ -77,3 +77,6 @@ keymap.set("n", "tt", ":TestNearest<CR>")
 keymap.set("n", "tf", ":TestFile<CR>")
 keymap.set("n", "tl", ":TestLast<CR>")
 keymap.set("n", "tv", ":TestVisit<CR>")
+
+-- vim-projectionist
+keymap.set("n", "<leader>a", ":A<CR>", { desc = "Alternate file" })
