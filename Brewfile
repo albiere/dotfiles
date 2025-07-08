@@ -21,5 +21,6 @@ brew "lua-language-server"
 brew "yaml-language-server"
 brew "typescript-language-server"
 brew "prettier"
+brew "peterldowns/tap/localias"
 
 cask "ghostty"
