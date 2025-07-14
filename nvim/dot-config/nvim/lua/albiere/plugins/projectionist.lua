@@ -4,6 +4,9 @@ vim.g.projectionist_heuristics = {
       alternate = "app/components/{}_component.html.erb"
     },
     ["app/components/*_component.html.erb"] = {
+      alternate = "test/components/{}_component_test.rb"
+    },
+    ["test/components/*_component_test.rb"] = {
       alternate = "app/components/{}_component.rb"
     },
     ["app/models/*.rb"] = {
