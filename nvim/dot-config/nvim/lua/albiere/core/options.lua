@@ -54,6 +54,9 @@ opt.writebackup = false -- if a file is being edited by another program (or was 
 opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.updatetime = 300  -- faster completion (4000ms default)
 
+-- terminal
+opt.equalalways = false
+
 -- general
 opt.fileencoding = "utf-8" -- the encoding written to a file
 opt.mouse = "a"            -- allow the mouse to be used in neovim
