@@ -70,7 +70,7 @@ execute_command \
   "> Changing login shell to Homebrew bash"
 
 # Check for tmux/tpm to be present, install if it's missing
-if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   execute_command "git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm" \
     "> Installing Tmux Package Manager"
 fi
