@@ -46,12 +46,6 @@ if [ -d "~/.tmux/plugins/tpm" ]; then
     "> Installing Tmux Package Manager"
 fi
 
-# Install key-bindings and fuzzy completion for FZF
-if which fd >/dev/null 2>&1; then
-  execute_command "/usr/local/opt/fzf/install --xdg --completion --key-bindings --no-update-rc --no-bash --no-zsh --no-fish" \
-    "> Installing key-bindings and fuzzy completion for FZF"
-fi
-
 if [ ${#ERRORS[@]} -gt 0 ]; then
   printf "\n${BOLDRED}The following errors occurred:${ENDCOLOR}\n"
   printf "%b" "${ERRORS[@]}"
