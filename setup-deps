@@ -2,8 +2,10 @@
 
 RED="31"
 GREEN="32"
+GRAY="90"
 BOLDGREEN="\033[1;${GREEN}m"
 BOLDRED="\033[1;${RED}m"
+BOLDGRAY="\033[1;${GRAY}m"
 ENDCOLOR="\033[0m"
 
 ERRORS=()
@@ -17,13 +19,17 @@ error_message() {
   printf "${BOLDRED}%s${ENDCOLOR}" "$1" >&2
 }
 
+message() {
+  printf "${BOLDGRAY}%s${ENDCOLOR}\n" "$1"
+}
+
 execute_command() {
   progress_message "$2..."
 
   if output=$(eval "$1" 2>&1); then
-    progress_message "Ok!\n\n"
+    progress_message "Ok!\n"
   else
-    error_message "Fail!\n\n"
+    error_message "Fail!\n"
     ERRORS+=("> $1\n${output}\n\n")
   fi
 }
@@ -32,15 +38,15 @@ execute_command() {
 if ! xcode-select -p >/dev/null 2>&1; then
   execute_command "xcode-select --install" \
     "> Open the GUI prompt to install Xcode Command Line Tools"
-  error_message "Please finish installing the Xcode Command Line Tools, then re-run this script."
+  message "Please finish installing the Xcode Command Line Tools, then re-run this script."
   exit 1
 else
-  progress_message "> Xcode Command Line Tools already installed"
+  message "> Xcode Command Line Tools already installed"
 fi
 
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
-  progress_message "> Installing homebrew..."
+  message "> Installing homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
