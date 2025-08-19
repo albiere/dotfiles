@@ -10,25 +10,33 @@ ERRORS=()
 
 # helper functions
 progress_message() {
-  printf "${BOLDGREEN}$1${ENDCOLOR}"
+  printf "${BOLDGREEN}%s${ENDCOLOR}\n" "$1"
 }
 
 error_message() {
-  printf "${BOLDRED}$1${ENDCOLOR}" >> /dev/stderr
+  printf "${BOLDRED}%s${ENDCOLOR}\n" "$1" >&2
 }
 
 execute_command() {
-  progress_message "${2}..."
+  progress_message "$2..."
 
-  error=$($1 2>&1)
-
-  if [ $? -eq 0 ]; then
-    progress_message " Ok!\n"
+  if output=$(eval "$1" 2>&1); then
+    progress_message "Ok!"
   else
-    error_message " Fail!\n"
-    ERRORS+=("> $1\n${error}\n\n")
+    error_message "Fail!"
+    ERRORS+=("> $1\n${output}\n\n")
   fi
 }
+
+# Install Xcode Command Line Tools if not already installed
+if ! xcode-select -p >/dev/null 2>&1; then
+  execute_command "xcode-select --install" \
+    "> Open the GUI prompt to install Xcode Command Line Tools"
+  error_message "Please finish installing the Xcode Command Line Tools, then re-run this script."
+  exit 1
+else
+  progress_message "> Xcode Command Line Tools already installed"
+fi
 
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
@@ -38,20 +46,23 @@ if test ! $(which brew); then
 fi
 
 # Install Homebrew packages
-execute_command "brew bundle"
+execute_command "brew bundle" \
+  "> Installing Homebrew packages"
 
 # Setup login shell from homebrew
 BREW_PREFIX="$(brew --prefix)"
 NEW_SHELL="$BREW_PREFIX/bin/bash"
 
-if ! grep -Fxq "$NEW_SHELL" /etc/shells; then
-  echo "$NEW_SHELL" | sudo tee -a /etc/shells
-fi
+execute_command \
+  "grep -Fxq $NEW_SHELL /etc/shells || echo $NEW_SHELL | sudo tee -a /etc/shells" \
+  "> Adding Homebrew bash to /etc/shells"
 
-chsh -s "$NEW_SHELL"
+execute_command \
+  "chsh -s $NEW_SHELL" \
+  "> Changing login shell to Homebrew bash"
 
 # Check for tmux/tpm to be present, install if it's missing
-if [ -d "~/.tmux/plugins/tpm" ]; then
+if [ -d "$HOME/.tmux/plugins/tpm" ]; then
   execute_command "git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm" \
     "> Installing Tmux Package Manager"
 fi
