@@ -41,9 +41,6 @@ fi
 execute_command "brew bundle"
 
 # Setup login shell from homebrew
-#!/usr/bin/env bash
-
-# Get Homebrew's prefix
 BREW_PREFIX="$(brew --prefix)"
 NEW_SHELL="$BREW_PREFIX/bin/bash"
 
@@ -51,7 +48,6 @@ if ! grep -Fxq "$NEW_SHELL" /etc/shells; then
   echo "$NEW_SHELL" | sudo tee -a /etc/shells
 fi
 
-# 2. Change login shell for current user
 chsh -s "$NEW_SHELL"
 
 # Check for tmux/tpm to be present, install if it's missing
