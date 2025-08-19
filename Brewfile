@@ -1,3 +1,4 @@
+brew "stow"
 brew "asdf"
 brew "coreutils"
 brew "gpg"
