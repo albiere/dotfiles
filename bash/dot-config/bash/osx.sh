@@ -21,4 +21,4 @@ defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 2
 defaults write -g com.apple.mouse.tapBehavior -int 2
 
 # Enable Reduce Motion
-defaults write com.apple.universalaccess reduceMotion -bool true
+defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
