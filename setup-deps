@@ -34,6 +34,7 @@ execute_command() {
 if test ! $(which brew); then
   progress_message "> Installing homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Install Homebrew packages
