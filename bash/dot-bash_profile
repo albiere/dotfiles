@@ -6,4 +6,3 @@ source $HOME/.config/bash/ps1.sh
 source $HOME/.config/bash/osx.sh
 source $HOME/.config/bash/fzf.sh
 source $HOME/.config/bash/asdf.sh
-source $HOME/.config/bash/homebrew.sh
