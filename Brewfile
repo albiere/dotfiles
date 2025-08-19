@@ -39,6 +39,8 @@ cask "cleanshot"
 cask "tableplus"
 cask "zed"
 cask "ticktick"
+cask "slack"
 
 mas "Theine", id: 955848755
 mas "Kindle", id: 302584613
+mas "Whatsapp", id: 310633997
