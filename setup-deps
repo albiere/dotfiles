@@ -2,37 +2,83 @@
 
 RED="31"
 GREEN="32"
-GRAY="90"
+YELLOW="33"
 BOLDGREEN="\033[1;${GREEN}m"
 BOLDRED="\033[1;${RED}m"
-BOLDGRAY="\033[1;${GRAY}m"
+BOLDYELLOW="\033[1;${YELLOW}m"
 ENDCOLOR="\033[0m"
 
 ERRORS=()
 
 # helper functions
 progress_message() {
-  printf "${BOLDGREEN}%s${ENDCOLOR}" "$1"
+  printf "${BOLDGREEN}%s${ENDCOLOR}\n" "$1"
+}
+
+warning_message() {
+  printf "${BOLDYELLOW}%s${ENDCOLOR}\n" "$1"
 }
 
 error_message() {
-  printf "${BOLDRED}%s${ENDCOLOR}" "$1" >&2
+  printf "${BOLDRED}%s${ENDCOLOR}\n" "$1" >&2
 }
 
 message() {
-  printf "${BOLDGRAY}%s${ENDCOLOR}\n" "$1"
+  printf "${BOLDGREEN}%s${ENDCOLOR}\n\n" "$1"
+}
+
+execute_command_raw() {
+  local cmd="$1" msg="$2"
+  trap 'was_interrupted=1' INT
+
+  progress_message "$msg..."
+  printf "\n"
+
+  eval "$cmd"
+  status=$?
+  trap - INT
+
+  printf "\n"
+  if (( was_interrupted )); then
+    warning_message "$msg...Interrupted!"
+    exit 130
+  elif (( status == 0 )); then
+    progress_message "$msg...Done!"
+    printf "\n\n"
+  else
+    error_message "$msg...Fail!"
+
+    printf "Exit status: %s\n" "$status"
+    exit 1
+  fi
 }
 
 execute_command() {
-  progress_message "$2..."
+  local cmd="$1" msg="$2" output
+  trap 'was_interrupted=1' INT
+  progress_message "$msg..."
 
-  if output=$(eval "$1" 2>&1); then
-    progress_message "Ok!"
-    printf "\n"
+  if output=$(eval "$cmd" 2>&1); then
+    status=0
   else
-    error_message "Fail!"
+    status=$?
+  fi
+
+  trap - INT
+
+  if (( was_interrupted )); then
+    warning_message "$msg...Interrupted!"
+    exit 130
+  elif (( status == 0 )); then
+    progress_message "$msg...Done!"
+    printf "\n\n"
+  else
+    error_message "$msg...Fail!"
+
     printf "\n"
-    ERRORS+=("> $1\n${output}\n\n")
+    error_message "The following errors occurred:"
+    printf "%b" "\n${output}\n\n"
+    exit 1
   fi
 }
 
@@ -43,7 +89,7 @@ if ! xcode-select -p >/dev/null 2>&1; then
   message "Please finish installing the Xcode Command Line Tools, then re-run this script."
   exit 1
 else
-  message "> Xcode Command Line Tools already installed"
+  message "> Xcode Command Line Tools already installed."
 fi
 
 # Check for Homebrew to be present, install if it's missing
@@ -54,8 +100,9 @@ if test ! $(which brew); then
 fi
 
 # Install Homebrew packages
-execute_command "brew bundle" \
-  "> Installing Homebrew packages"
+execute_command_raw \
+  "brew bundle" \
+  "> Instaling Homebrew packages"
 
 # Setup login shell from homebrew
 BREW_PREFIX="$(brew --prefix)"
@@ -73,9 +120,4 @@ execute_command \
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   execute_command "git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm" \
     "> Installing Tmux Package Manager"
-fi
-
-if [ ${#ERRORS[@]} -gt 0 ]; then
-  printf "\n${BOLDRED}The following errors occurred:${ENDCOLOR}\n"
-  printf "%b" "${ERRORS[@]}"
 fi
