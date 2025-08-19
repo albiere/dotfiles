@@ -1,3 +1,4 @@
+brew "libyaml" # required for installing ruby
 brew "stow"
 brew "asdf"
 brew "coreutils"
@@ -30,7 +31,6 @@ brew "yaml-language-server"
 brew "typescript-language-server"
 brew "prettier"
 brew "peterldowns/tap/localias"
-
 cask "ghostty"
 cask "rectangle"
 cask "dash"
