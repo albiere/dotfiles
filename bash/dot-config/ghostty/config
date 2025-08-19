@@ -1,3 +1,5 @@
+command=/opt/homebrew/bin/bash
+
 # kanagawa wave theme
 # https://github.com/rebelot/kanagawa.nvim/blob/master/extras/ghostty/kanagawa-wave
 palette = 0=#16161d
