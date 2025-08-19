@@ -6,9 +6,7 @@ export BAT_THEME=base16
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-if test ! $(which brew); then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 set -o vi
 bind '"jk":vi-movement-mode'
