@@ -27,9 +27,11 @@ execute_command() {
   progress_message "$2..."
 
   if output=$(eval "$1" 2>&1); then
-    progress_message "Ok!\n"
+    progress_message "Ok!"
+    printf "\n"
   else
-    error_message "Fail!\n"
+    error_message "Fail!"
+    printf "\n"
     ERRORS+=("> $1\n${output}\n\n")
   fi
 }
