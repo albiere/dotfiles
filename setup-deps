@@ -10,20 +10,20 @@ ERRORS=()
 
 # helper functions
 progress_message() {
-  printf "${BOLDGREEN}%s${ENDCOLOR}\n" "$1"
+  printf "${BOLDGREEN}%s${ENDCOLOR}" "$1"
 }
 
 error_message() {
-  printf "${BOLDRED}%s${ENDCOLOR}\n" "$1" >&2
+  printf "${BOLDRED}%s${ENDCOLOR}" "$1" >&2
 }
 
 execute_command() {
   progress_message "$2..."
 
   if output=$(eval "$1" 2>&1); then
-    progress_message "Ok!"
+    progress_message "Ok!\n\n"
   else
-    error_message "Fail!"
+    error_message "Fail!\n\n"
     ERRORS+=("> $1\n${output}\n\n")
   fi
 }
