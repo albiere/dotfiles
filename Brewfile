@@ -36,6 +36,6 @@ cask "tableplus"
 cask "zed"
 cask "ticktick"
 
-mas "Theine", id: "955848755"
-mas "Xcode", id: "497799835"
-mas "Kindle", id: "302584613"
+mas "Theine", id: 955848755
+mas "Xcode", id: 497799835
+mas "Kindle", id: 302584613
