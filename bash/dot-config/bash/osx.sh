@@ -17,8 +17,8 @@ defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 
 # Enable tap-to-click for trackpad
-defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 2
-defaults write -g com.apple.mouse.tapBehavior -int 2
+defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 1
+defaults write -g com.apple.mouse.tapBehavior -int 1
 
 # Enable Reduce Motion
 defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
